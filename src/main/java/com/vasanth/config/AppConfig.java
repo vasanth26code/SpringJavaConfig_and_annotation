@@ -6,12 +6,10 @@ import com.vasanth.Laptop;
 import com.vasanth.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
 @Configuration
+@ComponentScan("com.vasanth")
 public class AppConfig {
 
     // code for getting and setting value
@@ -49,14 +47,14 @@ public class AppConfig {
 
     //code for autowiring when code is dependent on both desktop and laptop without qualifier use primary in desktopbean
 
-    @Bean
-    public Student student(Computer com)
-    {
-        Student obj = new Student();
-        obj.setAge(24);
-        obj.setCom(com);
-        return obj;
-    }
+//    @Bean
+//    public Student student(Computer com)
+//    {
+//        Student obj = new Student();
+//        obj.setAge(24);
+//        obj.setCom(com);
+//        return obj;
+//    }
 
 
     //    @Bean(name = {"desktop1","com1"})
@@ -67,17 +65,17 @@ public class AppConfig {
 //        return new Desktop();
 //    }
 
-    @Bean
-    @Primary
-    public Desktop desktop()
-    {
-        return new Desktop();
-    }
-
-    @Bean
-    public Laptop laptop()
-    {
-        return new Laptop();
-    }
+//    @Bean
+//    @Primary
+//    public Desktop desktop()
+//    {
+//        return new Desktop();
+//    }
+//
+//    @Bean
+//    public Laptop laptop()
+//    {
+//        return new Laptop();
+//    }
 
 }
